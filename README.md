@@ -1,41 +1,36 @@
 # Moodring
 
-Pick a color, get a Spotify playlist that matches your mood. Built with React + Vite, Spotify OAuth (PKCE), and the Spotify Web API.
+Moodring is a web application that creates personalized Spotify playlists based on your mood. Users select a color from an interactive color wheel, and Moodring interprets that color to generate a playlist with matching genres, energy, and atmosphere.
 
-## How it works
+**Live Demo:** https://yourusername.github.io/moodring/
 
-1. **Landing** — Moodring logo, tagline, "Log in with Spotify" button.
-2. **Login** — Spotify's own OAuth screen (PKCE flow, no backend/server secret needed).
-3. **Mood Selector** — greets you by name, shows a color arc. Hover/drag updates the background color live; releasing/clicking commits a color, which reveals the mood label + "Generate Playlist" button.
-4. **Playlist** — generates a randomized, mood-flavored playlist title, creates a real playlist on your Spotify account seeded from mood-mapped genres/keywords, and shows a 4-track preview plus a "Listen on Spotify" link.
+## Features
 
-Every hex code maps to a mood profile (hue → emotional "zone", saturation → energy, lightness → depth), so different colors feel meaningfully different, and playlist titles are randomized per-generation so the same mood never gives you the same name twice.
+- Spotify authentication
+- Interactive color-based mood selection
+- Dynamic playlist generation
+- Randomized playlist titles
+- Responsive design
 
-## Setup
+## Built With
 
-1. Create a Spotify app at the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard).
-2. In the app's settings, add this Redirect URI: `http://127.0.0.1:5173/callback`
-3. Copy `.env.example` to `.env` and fill in your Client ID:
-   ```
-   cp .env.example .env
-   ```
-4. Install dependencies and run:
-   ```
-   npm install
-   npm run dev
-   ```
-5. Open `http://127.0.0.1:5173`
+- React
+- Vite
+- JavaScript
+- Spotify Web API
+- GitHub Pages
 
-No client secret is needed — this uses Authorization Code + PKCE, which is safe for a pure front-end app.
+## Preview
 
-## Notes / things to extend
+### Landing Page
+![Landing Page](screenshots/landing.png)
 
-- Track discovery uses the Search API (genre + keyword tagged queries) rather than the old `/recommendations` endpoint, since that endpoint is restricted for newer Spotify developer apps.
-- Playlists are created privately on your account (`playlist-modify-private` scope). Flip `public: false` in `src/utils/spotifyApi.js` if you want them public.
-- The mood-mapping logic lives in `src/utils/moodMap.js` — easy to extend with more hue zones or swap in a different genre taxonomy.
-- Title generation is in `src/utils/titleGenerator.js` — add more word banks / sentence shapes to keep it fresh.
-- Nothing here calls an AI/LLM API — moods and titles are procedurally generated from the color itself plus randomness, so it works with just a Spotify Client ID.
+### Mood Selection
+![Mood Selection](screenshots/mood-selection.png)
 
-## Deploying
+### Generated Playlist
+![Generated Playlist](screenshots/playlist.png)
 
-This is a static Vite app — it builds to `dist/` and can be hosted on Vercel, Netlify, GitHub Pages, etc. Just remember to add your production URL as a Redirect URI in the Spotify dashboard and update `VITE_REDIRECT_URI`.
+## Inspiration
+
+Moodring was inspired by the idea that colors can represent emotions. Instead of asking users to choose from predefined moods, the app lets them express how they're feeling through color and translates that into a personalized Spotify playlist.
