@@ -2,7 +2,7 @@
 
 Moodring is a web application that creates personalized Spotify playlists based on your mood. Users select a color from an interactive color wheel, and Moodring interprets that color to generate a playlist with matching genres, energy, and atmosphere.
 
-**Live Demo:** https://yourusername.github.io/moodring/
+**Live Demo:** https://megowallace.github.io/Moodring/
 
 ## Features
 
