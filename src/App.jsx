@@ -7,7 +7,7 @@ import './styles.css';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Moodring">
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/callback" element={<Callback />} />
